@@ -35,7 +35,7 @@ function List() {
               className='text-red-500'
               onClick={() => dispatch({ type: 'REMOVE_TODO', id: item.id })}
             >
-              <HiOutlineTrash size='20' />
+              <HiOutlineTrash size='20' title='Delete to-do item' />
             </button>
           </li>
         ))}
