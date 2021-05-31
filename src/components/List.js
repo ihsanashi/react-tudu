@@ -12,16 +12,18 @@ function List() {
       {todos.map((item) => (
         <li
           key={item.id}
-          className='flex flex-row items-center justify-between my-3 bg-gray-100 p-5 rounded-lg'
+          className='flex flex-row items-start justify-between my-3 bg-gray-100 p-5 rounded-lg'
         >
-          <div className='flex flex-row items-center justify-start'>
+          <div className='flex flex-row items-start justify-start'>
             <input
               className='rounded bg-gray-300 border-transparent focus:border-transparent focus:bg-gray-300 text-blue-700 focus:ring-1 focus:ring-offset-2 focus:ring-blue-500'
               type='checkbox'
               value={item.completed}
               onChange={() => !item.completed}
             />
-            <p className='text-gray-800 text-base ml-4'>{item.title}</p>
+            <p className='text-gray-800 text-base text-left ml-4'>
+              {item.title}
+            </p>
           </div>
           <div className='flex flex-row items-center'>
             <Link
