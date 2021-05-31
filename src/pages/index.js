@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet';
 import Header from '../components/Header';
-import FooterButton from '../components/FooterButton';
-import { HiOutlinePlusSm } from 'react-icons/hi';
+import { HiOutlineUser, HiOutlineSearch } from 'react-icons/hi';
 import { TodoContext } from '../contexts/TodoContext';
 import { useContext } from 'react';
 import Wrapper from '../components/Wrapper';
@@ -9,7 +8,7 @@ import { Link } from 'react-router-dom';
 import List from '../components/List';
 
 function Home() {
-  const { todos } = useContext(TodoContext);
+  const { todos, dispatch } = useContext(TodoContext);
 
   return (
     <>
@@ -20,10 +19,29 @@ function Home() {
         />
         <title>Tudu - Minimal To-do List</title>
       </Helmet>
-      <Header />
+      <Header
+        left={
+          <button className='rounded-full p-2'>
+            <HiOutlineUser
+              className='text-gray-200'
+              size='22'
+              title='Profile icon'
+            />
+          </button>
+        }
+        right={
+          <button className='rounded-lg p-2'>
+            <HiOutlineSearch
+              className='text-gray-200'
+              size='20'
+              title='Search icon'
+            />
+          </button>
+        }
+      />
       <Wrapper className='p-4 my-8 text-center'>
-        {todos.length === 0 ? (
-          <div className='container'>
+        <div className='container'>
+          {todos.length === 0 ? (
             <div className='max-w-xl mx-auto'>
               <h5 className='text-lg text-gray-700 font-normal'>
                 You have no todos at the moment.
@@ -35,22 +53,29 @@ function Home() {
                 Why not add some?
               </Link>
             </div>
-          </div>
-        ) : (
-          <List />
-        )}
+          ) : (
+            <List />
+          )}
+          {todos.length !== 0 && (
+            <div className='max-w-xl mx-auto flex flex-col items-center justify-center my-5'>
+              <Link
+                to='/new'
+                className='w-full flex items-center justify-center'
+              >
+                <button className='bg-green-500 hover:bg-green-600 py-3 px-8 rounded-lg w-full shadow-md hover:shadow-lg text-base font-medium text-white capitalize tracking-wider'>
+                  Add a new item
+                </button>
+              </Link>
+              <button
+                className='text-red-400 bg-red-50 hover:text-red-500 hover:bg-red-100 rounded-lg w-full py-3 mt-3'
+                onClick={() => dispatch({ type: 'RESET' })}
+              >
+                Reset
+              </button>
+            </div>
+          )}
+        </div>
       </Wrapper>
-      <FooterButton
-        title='Add a new item'
-        link='/new'
-        icon={
-          <HiOutlinePlusSm
-            color='white'
-            size='20'
-            className='animate-bounce transform group-hover:scale-105'
-          />
-        }
-      />
     </>
   );
 }
