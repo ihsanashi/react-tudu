@@ -24,7 +24,7 @@ function AddNew() {
     dispatch({
       type: 'ADD_TODO',
       item: {
-        title,
+        title: title.toLowerCase(),
         description,
         completed: false,
       },
@@ -93,7 +93,14 @@ function AddNew() {
               </button>
             </div>
           </form>
-          {submitted && <Banner />}
+          {submitted && (
+            <Banner
+              text='A new to-do has been added to your list. Add more, or go back to
+              the'
+              link='/'
+              linkTitle='homepage'
+            />
+          )}
         </div>
       </Wrapper>
     </>

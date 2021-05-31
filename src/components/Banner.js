@@ -2,7 +2,7 @@ import { HiOutlineX } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-function Banner() {
+function Banner({ text, link, linkTitle }) {
   const [close, setClose] = useState(false);
 
   const closeModal = () => {
@@ -15,15 +15,15 @@ function Banner() {
         <div className='container p-4 rounded-lg border border-purple-600 bg-purple-100'>
           <div className='flex flex-row items-start justify-between'>
             <p className='text-sm text-gray-700'>
-              A new to-do has been added to your list. Add more, or go back to
-              the{' '}
-              <Link
-                className='border-b border-purple-600 text-purple-600 font-medium'
-                to='/'
-              >
-                homepage
-              </Link>
-              .
+              {text}{' '}
+              {link && (
+                <Link
+                  className='border-b border-purple-600 text-purple-600 font-medium'
+                  to={link}
+                >
+                  {linkTitle}
+                </Link>
+              )}
             </p>
             <button type='button' onClick={closeModal}>
               <span className='sr-only'>Dismiss</span>
