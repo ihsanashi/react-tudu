@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Wrapper from '../components/Wrapper';
 import { HiOutlineChevronLeft } from 'react-icons/hi';
 
-function BackHeader({ link }) {
+function BackHeader({ link, endIcon }) {
   return (
     <Wrapper className='p-4'>
       <div className='container'>
@@ -13,6 +13,7 @@ function BackHeader({ link }) {
               <p className='text-sm text-gray-800'>Back</p>
             </button>
           </Link>
+          {endIcon}
         </header>
       </div>
     </Wrapper>
