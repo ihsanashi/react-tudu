@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import Wrapper from '../components/Wrapper';
 import { Link } from 'react-router-dom';
 import List from '../components/List';
+import { ACTIONS } from '../reducers/TodoReducer';
 
 function Home() {
   const { todos, dispatch } = useContext(TodoContext);
@@ -66,7 +67,7 @@ function Home() {
               </Link>
               <button
                 className='text-red-400 bg-red-50 hover:text-red-500 hover:bg-red-100 rounded-lg w-full py-3 mt-3'
-                onClick={() => dispatch({ type: 'RESET' })}
+                onClick={() => dispatch({ type: ACTIONS.RESET })}
               >
                 Reset
               </button>
