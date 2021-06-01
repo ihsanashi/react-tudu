@@ -5,6 +5,7 @@ import Banner from '../components/Banner';
 import { TodoContext } from '../contexts/TodoContext';
 import BackHeader from '../components/BackHeader';
 import { ACTIONS } from '../reducers/TodoReducer';
+import Header from '../components/Header';
 
 function AddNew() {
   const { dispatch } = useContext(TodoContext);
@@ -47,6 +48,7 @@ function AddNew() {
         <meta name='description' content='Add a new to-do item' />
         <title>Tudu - Add new to-do item</title>
       </Helmet>
+      <Header />
       <BackHeader link='/' />
       <Wrapper className='p-4'>
         <div className='container'>
