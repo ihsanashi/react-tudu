@@ -4,6 +4,7 @@ import Wrapper from '../components/Wrapper';
 import Banner from '../components/Banner';
 import { TodoContext } from '../contexts/TodoContext';
 import BackHeader from '../components/BackHeader';
+import { ACTIONS } from '../reducers/TodoReducer';
 
 function AddNew() {
   const { dispatch } = useContext(TodoContext);
@@ -22,11 +23,11 @@ function AddNew() {
     setLoading(true);
 
     dispatch({
-      type: 'ADD_TODO',
-      item: {
+      type: ACTIONS.ADD,
+      payload: {
         title: title.toLowerCase(),
         description,
-        completed: false,
+        complete: false,
       },
     });
 
@@ -96,7 +97,7 @@ function AddNew() {
           {submitted && (
             <Banner
               text='A new to-do has been added to your list. Add more, or go back to
-              the'
+              the '
               link='/'
               linkTitle='homepage'
             />
