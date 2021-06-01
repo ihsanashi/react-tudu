@@ -7,4 +7,3 @@
 - <strike>Reset list</strike>
 - Divide by sections; All, completed and pending to-dos
 - Search to-dos
-- Add avatar
