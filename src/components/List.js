@@ -1,11 +1,10 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { TodoContext } from '../contexts/TodoContext';
 import { Link } from 'react-router-dom';
+import { ACTIONS } from '../reducers/TodoReducer';
 
 function List() {
   const { todos, dispatch } = useContext(TodoContext);
-
-  useEffect(() => {}, [todos]);
 
   return (
     <ul className='max-w-xl mx-auto'>
@@ -18,8 +17,15 @@ function List() {
             <input
               className='rounded bg-gray-300 border-transparent focus:border-transparent focus:bg-gray-300 text-blue-700 focus:ring-1 focus:ring-offset-2 focus:ring-blue-500'
               type='checkbox'
-              value={item.completed}
-              onChange={() => !item.completed}
+              defaultChecked={item.complete}
+              onClick={() =>
+                dispatch({
+                  type: ACTIONS.TOGGLE,
+                  payload: {
+                    id: item.id,
+                  },
+                })
+              }
             />
             <p className='text-gray-800 text-base text-left ml-4'>
               {item.title}
@@ -27,7 +33,7 @@ function List() {
           </div>
           <div className='flex flex-row items-center'>
             <Link
-              to={`/todo/${item.title.replace(/\s+/g, '-').toLowerCase()}`}
+              to={`/todo/${item.id}`}
               id={item.id}
               className='mr-3 text-sm text-blue-500 font-medium'
               htmlFor={item.title}
@@ -37,7 +43,14 @@ function List() {
             <button
               type='button'
               className='text-red-500 text-sm font-medium'
-              onClick={() => dispatch({ type: 'REMOVE_TODO', id: item.id })}
+              onClick={() =>
+                dispatch({
+                  type: ACTIONS.REMOVE,
+                  payload: {
+                    id: item.id,
+                  },
+                })
+              }
             >
               Delete
             </button>
