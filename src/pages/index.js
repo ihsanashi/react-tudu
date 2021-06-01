@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
 import Header from '../components/Header';
-import { HiOutlineUser, HiOutlineSearch } from 'react-icons/hi';
+import { HiOutlineUser } from 'react-icons/hi';
 import { TodoContext } from '../contexts/TodoContext';
 import { useContext } from 'react';
 import Wrapper from '../components/Wrapper';
@@ -30,13 +30,11 @@ function Home() {
           </button>
         }
         right={
-          <button className='rounded-lg p-2'>
-            <HiOutlineSearch
-              className='text-gray-200'
-              size='20'
-              title='Search icon'
-            />
-          </button>
+          <input
+            type='text'
+            className='mt-0 block bg-indigo-500 px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-white text-sm text-white placeholder-gray-300'
+            placeholder='Search...'
+          />
         }
       />
       <Wrapper className='p-4 my-8 text-center'>
