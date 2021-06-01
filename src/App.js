@@ -18,7 +18,7 @@ function App() {
           <Switch>
             <Route exact path='/new' component={AddNew} />
             <Route exact path='/' component={Home} />
-            <Route exact strict path='/todo/:title' component={ViewTodo} />
+            <Route exact strict path='/todo/:id' component={ViewTodo} />
             <Route path='*' component={NoMatch} />
           </Switch>
         </Router>
