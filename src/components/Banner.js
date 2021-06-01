@@ -15,7 +15,7 @@ function Banner({ text, link, linkTitle }) {
         <div className='container p-4 rounded-lg border border-purple-600 bg-purple-100'>
           <div className='flex flex-row items-start justify-between'>
             <p className='text-sm text-gray-700'>
-              {text}{' '}
+              {text}
               {link && (
                 <Link
                   className='border-b border-purple-600 text-purple-600 font-medium'
