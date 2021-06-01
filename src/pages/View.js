@@ -1,13 +1,14 @@
 import { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link, Route, useHistory } from 'react-router-dom';
-import { HiOutlineTrash, HiOutlineChevronLeft } from 'react-icons/hi';
+import { Route, useHistory } from 'react-router-dom';
+import { HiOutlineTrash } from 'react-icons/hi';
 import { TodoContext } from '../contexts/TodoContext';
 import Wrapper from '../components/Wrapper';
 import Banner from '../components/Banner';
 import NoMatch from './NoMatch';
 import Header from '../components/Header';
 import { ACTIONS } from '../reducers/TodoReducer';
+import BackHeader from '../components/BackHeader';
 
 function ViewTodo(props) {
   // Determine if the current URL matches with a todo item title from the todos array
@@ -74,31 +75,8 @@ function ViewTodo(props) {
             )}
           </title>
         </Helmet>
-        <Header
-          left={
-            <Link to='/'>
-              <button className='flex flex-row justify-between items-center'>
-                <HiOutlineChevronLeft size='24' className='text-gray-100' />
-                <p className='text-sm text-gray-100'>Back</p>
-              </button>
-            </Link>
-          }
-          right={
-            <button
-              type='button'
-              disabled={loading}
-              className={`${
-                loading
-                  ? 'bg-gray-200 text-gray-800 cursor-not-allowed'
-                  : 'text-red-500 hover:text-red-600 bg-red-50 hover:bg-red-100'
-              }  flex flex-row justify-between items-center py-2 px-3 rounded-md`}
-              onClick={deleteItem}
-            >
-              <HiOutlineTrash size='20' title='Delete this to-do item' />
-              <small className='ml-2'>Delete</small>
-            </button>
-          }
-        />
+        <Header />
+        <BackHeader link='/' />
         <Wrapper className='p-4'>
           <div className='container'>
             <div className='max-w-xl mx-auto'>
@@ -139,10 +117,23 @@ function ViewTodo(props) {
                       loading
                         ? 'bg-gray-200 cursor-not-allowed'
                         : 'bg-green-500 hover:bg-green-600 text-white'
-                    } font-semibold tracking-wider py-3 px-8 rounded-lg w-full`}
+                    } font-medium text-base tracking-wider py-3 px-8 rounded-lg w-full`}
                     disabled={loading}
                   >
                     {loading ? 'Saving...' : 'Save'}
+                  </button>
+                  <button
+                    type='button'
+                    disabled={loading}
+                    className={`${
+                      loading
+                        ? 'bg-gray-200 text-gray-800 cursor-not-allowed'
+                        : 'text-red-500 hover:text-red-600 bg-red-50 hover:bg-red-100'
+                    }  flex flex-row justify-center items-center py-2 px-3 mt-3 rounded-lg w-full`}
+                    onClick={deleteItem}
+                  >
+                    <HiOutlineTrash size='20' title='Delete this to-do item' />
+                    <p className='ml-2 text-base'>Delete</p>
                   </button>
                 </div>
               </form>
