@@ -7,12 +7,13 @@ import Wrapper from '../components/Wrapper';
 import Banner from '../components/Banner';
 import NoMatch from './NoMatch';
 import Header from '../components/Header';
+import { ACTIONS } from '../reducers/TodoReducer';
 
 function ViewTodo(props) {
   // Determine if the current URL matches with a todo item title from the todos array
   const { todos, dispatch } = useContext(TodoContext);
-  const itemTitle = props.match.params.title.replace(/-/g, ' ');
-  const item = todos.find((item) => item.title === itemTitle);
+  const itemId = props.match.params.id;
+  const item = todos.find((item) => item.id === itemId);
 
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -29,7 +30,12 @@ function ViewTodo(props) {
   };
 
   const deleteItem = () => {
-    dispatch({ type: 'REMOVE_TODO', id: item.id });
+    dispatch({
+      type: ACTIONS.REMOVE,
+      payload: {
+        id: item.id,
+      },
+    });
     redirectToHome();
   };
 
@@ -38,12 +44,12 @@ function ViewTodo(props) {
     setLoading(true);
 
     dispatch({
-      type: 'SAVE_TODO',
-      item: {
+      type: ACTIONS.SAVE,
+      payload: {
         title: title.toLowerCase(),
         description,
         id: item.id,
-        completed: item.completed,
+        complete: item.complete,
       },
     });
 
@@ -140,7 +146,13 @@ function ViewTodo(props) {
                   </button>
                 </div>
               </form>
-              {submitted && <Banner text='This to-do has been updated' />}
+              {submitted && (
+                <Banner
+                  text='This to-do has been updated. Return to the '
+                  link='/'
+                  linkTitle='homepage'
+                />
+              )}
             </div>
           </div>
         </Wrapper>
