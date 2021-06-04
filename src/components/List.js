@@ -8,21 +8,6 @@ function List() {
 
   return (
     <div className='max-w-xl mx-auto'>
-      <div className='mb-5'>
-        <input
-          className='mt-0 block text-sm md:text-base mx-auto w-1/2 px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black'
-          type='text'
-          placeholder='Search'
-          onChange={(e) =>
-            dispatch({
-              type: ACTIONS.FILTER,
-              payload: {
-                title: e.target.value,
-              },
-            })
-          }
-        />
-      </div>
       <ul>
         {todos.map((item) => (
           <li
