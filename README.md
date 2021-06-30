@@ -5,6 +5,9 @@ This project is a a to-do list app, bootstrapped with [Create React App](https:/
 #### Technologies
 
 - React for UI components
+- Context API (useContext) to pass data through the component tree
+- useState hook for managing changes in state
+- Local storage for persisting data
 - Styling with Tailwind CSS
 - *react-router-dom* for handling navigation and routes
 - *uuid* package for generating random IDs, which are then used to differentiate each to-do item, and acts as the slug for to-do items
