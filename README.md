@@ -2,9 +2,9 @@
 
 - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
-    - [Technologies](#technologies)
-    - [Screenshot & GIF flow](#screenshot--gif-flow)
-    - [Live site](#live-site)
+  - [Technologies](#technologies)
+  - [Screenshot/Gifs](#screenshotgifs)
+  - [Live site](#live-site)
   - [Available Scripts](#available-scripts)
     - [`npm start`](#npm-start)
     - [`npm test`](#npm-test)
@@ -22,7 +22,7 @@
 
 This project is a a to-do list app, bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It allows a user to add new items to the to-do list, update existing ones, mark items as completed, and delete items.
 
-### Technologies
+## Technologies
 
 - React for UI components
 - Context API (useContext) to pass data through the component tree
@@ -32,13 +32,13 @@ This project is a a to-do list app, bootstrapped with [Create React App](https:/
 - *react-router-dom* for handling navigation and routes
 - *uuid* package for generating random IDs, which are then used to differentiate each to-do item, and acts as the slug for to-do items
 
-### Screenshot & GIF flow
+## Screenshot/Gifs
 
 ![Home](assets/tudu-screenshot.png)
 
 ![Flow](assets/tudu-flow.gif)
 
-### Live site
+## Live site
 
 This repo is deployed with [Vercel](https://vercel.com/), and can be viewed [here](https://react-tudu.vercel.app/).
 
