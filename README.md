@@ -1,3 +1,20 @@
+- [Introduction](#introduction)
+  - [Technologies](#technologies)
+  - [Screenshot & GIF flow](#screenshot--gif-flow)
+  - [Live site](#live-site)
+- [Available Scripts](#available-scripts)
+  - [`npm start`](#npm-start)
+  - [`npm test`](#npm-test)
+  - [`npm run build`](#npm-run-build)
+  - [`npm run eject`](#npm-run-eject)
+- [Learn More](#learn-more)
+  - [Code Splitting](#code-splitting)
+  - [Analyzing the Bundle Size](#analyzing-the-bundle-size)
+  - [Making a Progressive Web App](#making-a-progressive-web-app)
+  - [Advanced Configuration](#advanced-configuration)
+  - [Deployment](#deployment)
+  - [`npm run build` fails to minify](#npm-run-build-fails-to-minify)
+
 ## Introduction
 
 This project is a a to-do list app, bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It allows a user to add new items to the to-do list, update existing ones, mark items as completed, and delete items.
