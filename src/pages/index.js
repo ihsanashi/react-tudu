@@ -23,12 +23,12 @@ function Home() {
         <div className='container'>
           {todos.length === 0 ? (
             <div className='max-w-xl mx-auto'>
-              <h5 className='text-lg text-gray-700 font-normal'>
+              <h5 className='text-lg font-normal text-gray-700'>
                 You have no todos at the moment.
               </h5>
               <Link
                 to='/new'
-                className='font-medium text-gray-800 hover:text-blue-500 border-b border-black hover:border-blue-500'
+                className='font-medium text-gray-800 border-b border-black hover:text-blue-500 hover:border-blue-500'
               >
                 Why not add some?
               </Link>
