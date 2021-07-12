@@ -1,9 +1,8 @@
 import { Helmet } from 'react-helmet';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './pages';
-import AddNew from './pages/new';
-import NoMatch from './pages/NoMatch';
-import ViewTodo from './pages/View';
+
+import routes from './config/routes';
+
 import { TodoProvider } from './contexts/TodoContext';
 
 function App() {
@@ -16,10 +15,15 @@ function App() {
       <TodoProvider>
         <Router>
           <Switch>
-            <Route exact path='/new' component={AddNew} />
-            <Route exact path='/' component={Home} />
-            <Route exact strict path='/todo/:id' component={ViewTodo} />
-            <Route path='*' component={NoMatch} />
+            {routes.map((route) => (
+              <Route
+                exact
+                strict
+                key={route.path}
+                path={route.path}
+                component={route.component}
+              />
+            ))}
           </Switch>
         </Router>
       </TodoProvider>
