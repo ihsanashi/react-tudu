@@ -12,11 +12,11 @@ import NoMatch from '../pages/NoMatch';
 const routes = [
   {
     path: '/',
-    component: Landing,
+    component: Home,
   },
   {
-    path: '/home',
-    component: Home,
+    path: '/landing',
+    component: Landing,
   },
   {
     path: '/new',
