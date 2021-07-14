@@ -6,11 +6,16 @@ function BackHeader({ link }) {
   return (
     <Wrapper className='p-4 my-5'>
       <div className='container'>
-        <header className='max-w-xl mx-auto flex flex-row justify-between items-center'>
+        <header className='flex flex-row items-center justify-between max-w-xl mx-auto'>
           <Link to={link}>
-            <button className='flex flex-row justify-between items-center'>
-              <HiOutlineChevronLeft size='24' color='#121212' />
-              <p className='text-sm text-gray-800'>Back</p>
+            <button className='flex flex-row items-center justify-between group'>
+              <HiOutlineChevronLeft
+                size='24'
+                className='text-gray-500 transition duration-300 ease-in-out group-hover:text-gray-800'
+              />
+              <p className='text-sm text-gray-500 transition duration-300 ease-in-out group-hover:text-gray-800'>
+                Back
+              </p>
             </button>
           </Link>
         </header>
