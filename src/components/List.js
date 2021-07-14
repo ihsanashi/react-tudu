@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { TodoContext } from '../contexts/TodoContext';
 import { Link } from 'react-router-dom';
 import { ACTIONS } from '../reducers/TodoReducer';
+import { HiOutlineTrash } from 'react-icons/hi';
 
 function List() {
   const { todos, dispatch } = useContext(TodoContext);
@@ -12,11 +13,11 @@ function List() {
         {todos.map((item) => (
           <li
             key={item.id}
-            className='flex flex-row items-start justify-between my-3 bg-gray-100 p-5 rounded-lg'
+            className='flex flex-row items-start justify-between p-5 my-3 bg-gray-100 rounded-lg'
           >
             <div className='flex flex-row items-start justify-start'>
               <input
-                className='rounded bg-gray-300 border-transparent focus:border-transparent focus:bg-gray-300 text-blue-700 focus:ring-1 focus:ring-offset-2 focus:ring-blue-500'
+                className='text-blue-700 bg-gray-300 border-transparent rounded focus:border-transparent focus:bg-gray-300 focus:ring-1 focus:ring-offset-2 focus:ring-blue-500'
                 type='checkbox'
                 defaultChecked={item.complete}
                 onClick={() =>
@@ -28,7 +29,7 @@ function List() {
                   })
                 }
               />
-              <p className='text-gray-800 text-base text-left ml-4'>
+              <p className='ml-4 text-base text-left text-gray-800'>
                 {item.title}
               </p>
             </div>
@@ -36,14 +37,14 @@ function List() {
               <Link
                 to={`/todo/${item.id}`}
                 id={item.id}
-                className='mr-3 text-sm text-blue-500 font-medium'
+                className='mr-3 text-sm font-medium text-blue-500 transition duration-300 ease-in-out hover:text-blue-700'
                 htmlFor={item.title}
               >
                 View
               </Link>
               <button
                 type='button'
-                className='text-red-500 text-sm font-medium'
+                className='transition duration-300 ease-in-out'
                 onClick={() =>
                   dispatch({
                     type: ACTIONS.REMOVE,
@@ -53,20 +54,23 @@ function List() {
                   })
                 }
               >
-                Delete
+                <HiOutlineTrash
+                  className='text-red-500 transition duration-300 ease-in-out hover:text-red-700'
+                  size={20}
+                />
               </button>
             </div>
           </li>
         ))}
       </ul>
-      <div className='flex flex-col items-center justify-center my-5'>
-        <Link to='/new' className='w-full flex items-center justify-center'>
-          <button className='bg-green-500 hover:bg-green-600 py-3 px-8 rounded-lg w-full shadow-md hover:shadow-lg text-base font-medium text-white capitalize tracking-wider'>
-            Add a new item
+      <div className='flex flex-row items-center justify-between my-5 gap-x-5'>
+        <Link to='/new' className='flex items-center justify-center w-full'>
+          <button className='w-full px-8 py-3 text-base font-semibold tracking-wider text-white capitalize transition duration-300 ease-in-out bg-green-500 rounded-lg shadow hover:bg-green-600 hover:shadow-md'>
+            Add
           </button>
         </Link>
         <button
-          className='text-red-400 bg-red-50 hover:text-red-500 hover:bg-red-100 rounded-lg w-full py-3 mt-3'
+          className='w-full py-3 font-medium text-red-400 transition duration-300 ease-in-out rounded-lg bg-red-50 hover:text-red-700 hover:bg-red-100'
           onClick={() => dispatch({ type: ACTIONS.RESET })}
         >
           Reset
