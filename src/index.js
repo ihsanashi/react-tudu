@@ -13,7 +13,7 @@ ReactDOM.render(
     clientId={clientId}
     redirectUri={window.location.origin}
   >
-    <App />,
+    <App />
   </Auth0Provider>,
   document.getElementById('root')
 );
