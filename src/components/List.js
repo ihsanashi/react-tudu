@@ -15,9 +15,9 @@ function List() {
             key={item.id}
             className='flex flex-row items-start justify-between p-5 my-3 bg-gray-100 rounded-lg'
           >
-            <div className='flex flex-row items-start justify-start'>
+            <div className='flex flex-row items-start justify-start gap-x-5'>
               <input
-                className='text-blue-700 bg-gray-300 border-transparent rounded focus:border-transparent focus:bg-gray-300 focus:ring-1 focus:ring-offset-2 focus:ring-blue-500'
+                className='text-indigo-700 bg-gray-300 border-transparent rounded focus:border-transparent focus:bg-gray-300 focus:ring-1 focus:ring-offset-2 focus:ring-indigo-500'
                 type='checkbox'
                 defaultChecked={item.complete}
                 onClick={() =>
@@ -29,19 +29,16 @@ function List() {
                   })
                 }
               />
-              <p className='ml-4 text-base text-left text-gray-800'>
-                {item.title}
-              </p>
-            </div>
-            <div className='flex flex-row items-center'>
               <Link
                 to={`/todo/${item.id}`}
                 id={item.id}
-                className='mr-3 text-sm font-medium text-blue-500 transition duration-300 ease-in-out hover:text-blue-700'
+                className='text-sm font-medium text-indigo-500 transition duration-300 ease-in-out md:text-base hover:text-indigo-700'
                 htmlFor={item.title}
               >
-                View
+                <p className='text-left'>{item.title}</p>
               </Link>
+            </div>
+            <div className='flex flex-row items-center gap-x-4'>
               <button
                 type='button'
                 className='transition duration-300 ease-in-out'
@@ -55,7 +52,7 @@ function List() {
                 }
               >
                 <HiOutlineTrash
-                  className='text-red-500 transition duration-300 ease-in-out hover:text-red-700'
+                  className='text-gray-600 transition duration-300 ease-in-out rounded-full hover:text-red-500'
                   size={20}
                 />
               </button>
