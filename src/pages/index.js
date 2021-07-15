@@ -28,7 +28,7 @@ function Home() {
               </h5>
               <Link
                 to='/new'
-                className='font-medium text-gray-800 border-b border-black hover:text-blue-500 hover:border-blue-500'
+                className='font-medium text-gray-800 transition duration-300 ease-in-out border-b border-black hover:text-indigo-500 hover:border-indigo-500'
               >
                 Why not add some?
               </Link>
