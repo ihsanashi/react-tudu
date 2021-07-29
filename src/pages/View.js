@@ -3,12 +3,9 @@ import { Helmet } from 'react-helmet';
 import { Route, useHistory } from 'react-router-dom';
 import { HiOutlineTrash } from 'react-icons/hi';
 import { TodoContext } from '../contexts/TodoContext';
-import Wrapper from '../components/Wrapper';
-import Banner from '../components/Banner';
-import NoMatch from './NoMatch';
-import Header from '../components/Header';
 import { ACTIONS } from '../reducers/TodoReducer';
-import BackHeader from '../components/BackHeader';
+import NoMatch from './NoMatch';
+import { BackHeader, Banner, Header, Wrapper } from '../components';
 
 function ViewTodo(props) {
   // Determine if the current URL matches with a todo item title from the todos array

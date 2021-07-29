@@ -1,10 +1,8 @@
 import { Helmet } from 'react-helmet';
-import Header from '../components/Header';
 import { TodoContext } from '../contexts/TodoContext';
 import { useContext } from 'react';
-import Wrapper from '../components/Wrapper';
 import { Link } from 'react-router-dom';
-import List from '../components/List';
+import { Header, List, Wrapper } from '../components';
 
 function Home() {
   const { todos } = useContext(TodoContext);

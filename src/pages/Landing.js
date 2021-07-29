@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
-import Wrapper from '../components/Wrapper';
 import { useAuth0 } from '@auth0/auth0-react';
+import { Wrapper } from '../components';
 
 function Landing() {
   const { loginWithRedirect } = useAuth0();

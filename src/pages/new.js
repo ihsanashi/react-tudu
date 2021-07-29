@@ -1,11 +1,8 @@
 import { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import Wrapper from '../components/Wrapper';
-import Banner from '../components/Banner';
+import { BackHeader, Banner, Header, Wrapper } from '../components';
 import { TodoContext } from '../contexts/TodoContext';
-import BackHeader from '../components/BackHeader';
 import { ACTIONS } from '../reducers/TodoReducer';
-import Header from '../components/Header';
 
 function AddNew() {
   const { dispatch } = useContext(TodoContext);

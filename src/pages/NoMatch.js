@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router';
 import { Helmet } from 'react-helmet';
-import Wrapper from '../components/Wrapper';
 import { Link } from 'react-router-dom';
+import { Wrapper } from '../components';
 
 function NoMatch() {
   const location = useLocation();
