@@ -6,6 +6,7 @@ import { Auth0Provider } from '@auth0/auth0-react';
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+const audience = process.env.REACT_APP_JWT_AUDIENCE;
 
 ReactDOM.render(
   <Auth0Provider
@@ -14,6 +15,8 @@ ReactDOM.render(
     redirectUri={window.location.origin}
     useRefreshTokens={true}
     cacheLocation='localstorage'
+    audience={audience}
+    scope='create:todos read:todos update:todo delete:todo'
   >
     <App />
   </Auth0Provider>,
