@@ -1,5 +1,6 @@
 import { createContext, useReducer, useEffect } from 'react';
 import { TodoReducer } from '../reducers/TodoReducer';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export const TodoContext = createContext();
 
@@ -9,9 +10,40 @@ export const TodoProvider = ({ children }) => {
     return localData ? JSON.parse(localData) : [];
   });
 
+  const audience = process.env.REACT_APP_JWT_AUDIENCE;
+  const baseUrl =
+    process.env.NODE_ENV === 'production'
+      ? process.env.REACT_APP_BASE_API_ENDPOINT
+      : 'http://localhost:8080';
+
+  const { getAccessTokenSilently } = useAuth0();
+
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
+
+    const getAuth0Data = async () => {
+      try {
+        const token = await getAccessTokenSilently({
+          audience: audience,
+          scope: 'create:todos read:todos update:todo delete:todo',
+        });
+
+        console.log(token);
+
+        const response = await fetch(`${baseUrl}/api/v1/todos`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    getAuth0Data();
+  }, [todos, audience, baseUrl, getAccessTokenSilently]);
 
   return (
     <TodoContext.Provider value={{ todos, dispatch }}>
