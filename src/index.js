@@ -16,7 +16,7 @@ ReactDOM.render(
     useRefreshTokens={true}
     cacheLocation='localstorage'
     audience={audience}
-    scope='create:todos read:todos update:todo delete:todo'
+    scope='manage:todos'
   >
     <App />
   </Auth0Provider>,
