@@ -1,3 +1,5 @@
+*Currently implementing user authentication with auth0 and integrating with a backend REST API built with Express. So, I may have broken some things...*
+
 # Table of Contents
 
 - [Table of Contents](#table-of-contents)
