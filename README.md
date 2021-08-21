@@ -40,7 +40,7 @@ This project is a a to-do list app, bootstrapped with [Create React App](https:/
 
 ## Live site
 
-This repo is deployed with [Vercel](https://vercel.com/), and can be viewed [here](https://react-tudu.vercel.app/).
+This repo is deployed with [Vercel](https://vercel.com/), and can be viewed [here](https://tudu.ahmadihsan.com/).
 
 ## Available Scripts
 
