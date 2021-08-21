@@ -28,13 +28,22 @@ function Landing() {
             <div className='flex flex-row items-center justify-between gap-x-5'>
               <button
                 className='w-full px-10 py-3 font-semibold text-white transition duration-300 ease-in-out bg-indigo-500 rounded-md hover:bg-indigo-600'
-                onClick={() => loginWithRedirect()}
+                onClick={() =>
+                  loginWithRedirect({
+                    scope: 'manage:todos',
+                  })
+                }
               >
                 Log in
               </button>
               <button
                 className='w-full px-10 py-3 font-medium text-indigo-500 transition duration-300 ease-in-out border border-indigo-500 rounded-md hover:bg-indigo-50'
-                onClick={() => loginWithRedirect({ screen_hint: 'signup' })}
+                onClick={() =>
+                  loginWithRedirect({
+                    screen_hint: 'signup',
+                    scope: 'manage:todos',
+                  })
+                }
               >
                 Register
               </button>
