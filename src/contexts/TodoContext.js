@@ -16,7 +16,7 @@ export const TodoProvider = ({ children }) => {
       ? process.env.REACT_APP_BASE_API_ENDPOINT
       : 'http://localhost:8080';
 
-  const { getAccessTokenSilently } = useAuth0();
+  const { user, getAccessTokenSilently } = useAuth0();
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
@@ -25,10 +25,11 @@ export const TodoProvider = ({ children }) => {
       try {
         const token = await getAccessTokenSilently({
           audience: audience,
-          scope: 'create:todos read:todos update:todo delete:todo',
+          scope: 'manage:todos',
         });
 
-        console.log(token);
+        console.log('token', token);
+        console.log('user', user);
 
         const response = await fetch(`${baseUrl}/api/v1/todos`, {
           headers: {
@@ -43,7 +44,7 @@ export const TodoProvider = ({ children }) => {
       }
     };
     getAuth0Data();
-  }, [todos, audience, baseUrl, getAccessTokenSilently]);
+  }, [todos, audience, baseUrl, user, getAccessTokenSilently]);
 
   return (
     <TodoContext.Provider value={{ todos, dispatch }}>
