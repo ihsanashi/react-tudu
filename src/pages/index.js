@@ -1,6 +1,5 @@
 import { Helmet } from 'react-helmet';
-import { Header, List, Wrapper } from '../components';
-import AddNew from '../components/AddNew';
+import { Header, TodoList, Wrapper, AddNew, ResetAll } from '../components';
 
 function Home() {
   return (
@@ -16,7 +15,8 @@ function Home() {
       <Wrapper className='p-4 my-5'>
         <div className='container'>
           <AddNew />
-          <List />
+          <TodoList />
+          <ResetAll />
         </div>
       </Wrapper>
     </>
