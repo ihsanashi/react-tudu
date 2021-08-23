@@ -1,11 +1,8 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { BackHeader, Banner, Header, Wrapper } from '../components';
-import { TodoContext } from '../contexts/TodoContext';
-import { ACTIONS } from '../reducers/TodoReducer';
 
 function AddNew() {
-  const { dispatch } = useContext(TodoContext);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [title, setTitle] = useState('');
@@ -19,15 +16,6 @@ function AddNew() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
-
-    dispatch({
-      type: ACTIONS.ADD,
-      payload: {
-        title: title.toLowerCase(),
-        description,
-        complete: false,
-      },
-    });
 
     setTimeout(() => {
       setSubmitted(true);
