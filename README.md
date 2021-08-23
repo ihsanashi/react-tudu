@@ -1,4 +1,6 @@
-*Currently implementing user authentication with auth0 and integrating with a backend REST API built with Express. So, I may have broken some things...*
+_I'm currently integrating a backend REST API built with Express and MongoDB to handle user data, as well as implementing user authentication with auth0. So some of the features are not working as yet, or buggy. I'm also going to add tests once I have completed the CRUD features._
+
+_I'll update here as I make progress._
 
 # Table of Contents
 
@@ -31,8 +33,8 @@ This project is a a to-do list app, bootstrapped with [Create React App](https:/
 - useState hook for managing changes in state
 - Local storage for persisting data
 - Styling with Tailwind CSS
-- *react-router-dom* for handling navigation and routes
-- *uuid* package for generating random IDs, which are then used to differentiate each to-do item, and acts as the slug for to-do items
+- _react-router-dom_ for handling navigation and routes
+- _uuid_ package for generating random IDs, which are then used to differentiate each to-do item, and acts as the slug for to-do items
 
 ## Screenshot/Gifs
 
