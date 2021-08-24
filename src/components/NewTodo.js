@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useAuth0 } from '@auth0/auth0-react';
+import { useQueryClient } from 'react-query';
 
 const audience = process.env.REACT_APP_JWT_AUDIENCE;
 const baseUrl =
@@ -10,6 +11,9 @@ const baseUrl =
 function NewTodo() {
   const { register, handleSubmit } = useForm();
   const { getAccessTokenSilently } = useAuth0();
+
+  // Get QueryClient from the context
+  const queryClient = useQueryClient();
 
   const postNewData = async (data) => {
     console.log(data);
@@ -29,6 +33,8 @@ function NewTodo() {
     });
     const jsonData = await response.json();
     console.log(jsonData);
+
+    queryClient.invalidateQueries('todos');
   };
 
   return (
@@ -39,7 +45,7 @@ function NewTodo() {
             <div className='flex items-center py-1.5 flex-1'>
               <label
                 htmlFor='title'
-                className='mr-5 text-sm text-right text-gray-700 w-min'
+                className='w-20 text-sm text-right text-gray-700'
               >
                 Title
               </label>
@@ -47,13 +53,13 @@ function NewTodo() {
                 type='text'
                 {...register('title', { required: true })}
                 placeholder='Eg. Buy groceries'
-                className='flex-1 p-0 text-base text-gray-900 bg-transparent border-transparent rounded-md focus:border-transparent focus:bg-transparent focus:ring-0'
+                className='flex-1 p-0 pl-2.5 text-base text-gray-900 bg-transparent border-transparent rounded-md focus:border-transparent focus:bg-transparent focus:ring-0'
               />
             </div>
             <div className='flex items-center py-1.5 flex-1'>
               <label
                 htmlFor='description'
-                className='mr-5 text-sm text-right text-gray-700 w-min'
+                className='w-20 text-sm text-right text-gray-700'
               >
                 Description
               </label>
@@ -61,7 +67,7 @@ function NewTodo() {
                 type='text'
                 {...register('description')}
                 placeholder='Eg. Get ice cream'
-                className='flex-1 p-0 text-base text-gray-900 bg-transparent border-transparent rounded-md focus:border-transparent focus:bg-transparent focus:ring-0'
+                className='flex-1 p-0 pl-2.5 text-base text-gray-900 bg-transparent border-transparent rounded-md focus:border-transparent focus:bg-transparent focus:ring-0'
               />
             </div>
           </div>
