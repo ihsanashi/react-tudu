@@ -7,7 +7,7 @@ const baseUrl =
     ? process.env.REACT_APP_BASE_API_ENDPOINT
     : 'http://localhost:8080';
 
-function AddNew() {
+function NewTodo() {
   const { register, handleSubmit } = useForm();
   const { getAccessTokenSilently } = useAuth0();
 
@@ -74,4 +74,4 @@ function AddNew() {
   );
 }
 
-export default AddNew;
+export default NewTodo;
