@@ -54,7 +54,7 @@ function TodoList() {
           </div>
           <ul className='pt-5'>
             {data.map((item) => (
-              <TodoItem item={item} />
+              <TodoItem item={item} key={item._id} />
             ))}
           </ul>
         </>

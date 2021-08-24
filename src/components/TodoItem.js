@@ -3,10 +3,7 @@ import { HiOutlineTrash, HiOutlineCheck } from 'react-icons/hi';
 
 function TodoItem({ item }) {
   return (
-    <li
-      key={item._id}
-      className='flex flex-row items-start justify-between py-2.5'
-    >
+    <li className='flex flex-row items-start justify-between py-2.5'>
       <div className='flex flex-col items-start justify-start gap-x-5'>
         <Link to={`/todo/${item._id}`} id={item.id} htmlFor={item.title}>
           {item.isCompleted && (
