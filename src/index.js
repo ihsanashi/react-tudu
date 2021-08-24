@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { Auth0Provider } from '@auth0/auth0-react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 const audience = process.env.REACT_APP_JWT_AUDIENCE;
+
+const queryClient = new QueryClient();
 
 ReactDOM.render(
   <Auth0Provider
@@ -18,7 +21,9 @@ ReactDOM.render(
     audience={audience}
     scope='manage:todos'
   >
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
   </Auth0Provider>,
   document.getElementById('root')
 );
